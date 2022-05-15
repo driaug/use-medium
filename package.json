@@ -1,0 +1,55 @@
+{
+  "name": "use-medium",
+  "description": "Get your latest Medium articles with this React hook",
+  "version": "0.6.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": "Dries Augustyns <inbox@driaug.com>",
+  "module": "dist/use-medium.esm.js",
+  "repository": "git://github.com/driaug/use-medium.git",
+  "keywords": [
+    "react",
+    "react-hook",
+    "hook",
+    "medium",
+    "medium-api",
+    "rss"
+  ],
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "lint": "tsdx lint src",
+    "prepare": "tsdx build"
+  },
+  "peerDependencies": {
+    "react": ">=17"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "husky": "^4.3.0",
+    "react": "^16.13.1",
+    "react-dom": "^17.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "swr": "^0.4.0",
+    "unfetch": "^4.2.0",
+    "xml-js": "^1.6.11"
+  }
+}
