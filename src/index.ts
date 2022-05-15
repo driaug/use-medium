@@ -1,18 +1,18 @@
 import useSWR from 'swr';
-import fetch from 'unfetch';
-import parser from 'xml-js';
-import { parseFeed } from './utils';
+import { parseFeed, fetcher } from './utils';
 
-const fetcher = (url: string) =>
-  fetch(url)
-    .then(r => r.text())
-    .then(xml => parser.xml2js(xml, { compact: true }));
-
-export function useMedium(username: string) {
-  const endpoint = `https://thingproxy.freeboard.io/fetch/https://medium.com/feed/@${username}`;
+/**
+ * Use-Medium
+ * @param username {string} Your Medium handle without @
+ * @param config {object} Optional configuration parameters
+ */
+export function useMedium(username: string, config: { proxy?: string }) {
+  const endpoint = config.proxy
+    ? `${config.proxy}https://medium.com/feed/@${username}`
+    : `https://thingproxy.freeboard.io/fetch/https://medium.com/feed/@${username}`;
 
   const { data: feed, error } = useSWR(endpoint, fetcher, {
-    refreshInterval: 60,
+    refreshInterval: 600000,
   });
 
   if (error) {

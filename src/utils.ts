@@ -1,9 +1,9 @@
-import { Element, ElementCompact } from 'xml-js';
+import parser, { Element, ElementCompact } from 'xml-js';
+import fetch from 'unfetch';
 import { Root } from './types';
 
 export function parseFeed(feed: Element | ElementCompact) {
-  const typed = feed as Root;
-  return typed.rss.channel.item.map(i => {
+  return (feed as Root).rss.channel.item.map(i => {
     return {
       title: i.title._cdata,
       description: i.description._cdata.replace(/<[^>]*>?/gm, ''),
@@ -13,4 +13,10 @@ export function parseFeed(feed: Element | ElementCompact) {
       date: new Date(i.pubDate._text),
     };
   });
+}
+
+export function fetcher(url: string) {
+  fetch(url)
+    .then(r => r.text())
+    .then(xml => parser.xml2js(xml, { compact: true }));
 }
