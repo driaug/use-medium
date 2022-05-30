@@ -1,7 +1,7 @@
 {
   "name": "use-medium",
   "description": "Get your latest Medium articles with this React hook",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
