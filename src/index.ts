@@ -6,8 +6,8 @@ import { parseFeed, fetcher } from './utils';
  * @param username {string} Your Medium handle without @
  * @param config {object} Optional configuration parameters
  */
-export function useMedium(username: string, config: { proxy?: string }) {
-  const endpoint = config.proxy
+export function useMedium(username: string, config?: { proxy?: string }) {
+  const endpoint = config?.proxy
     ? `${config.proxy}https://medium.com/feed/@${username}`
     : `https://thingproxy.freeboard.io/fetch/https://medium.com/feed/@${username}`;
 
