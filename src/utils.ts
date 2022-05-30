@@ -16,7 +16,7 @@ export function parseFeed(feed: Element | ElementCompact) {
 }
 
 export function fetcher(url: string) {
-  fetch(url)
+  return fetch(url)
     .then(r => r.text())
     .then(xml => parser.xml2js(xml, { compact: true }));
 }
