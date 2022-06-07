@@ -4,13 +4,13 @@ import * as ReactDOM from 'react-dom';
 import { useMedium } from '../.';
 
 const App = () => {
-  const medium = useMedium('driaug');
+  const { articles } = useMedium('driaug');
 
-  if (!medium) {
+  if (!articles) {
     return <p>Loading your latest articles</p>;
   }
 
-  return medium.map(article => {
+  return articles.map(article => {
     return (
       <article key={article.guid}>
         <p className={'title'}>{article.title}</p>
