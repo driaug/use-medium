@@ -1,5 +1,4 @@
 import parser, { Element, ElementCompact } from 'xml-js';
-import fetch from 'unfetch';
 import { Root } from './types';
 
 export function parseFeed(feed: Element | ElementCompact) {
