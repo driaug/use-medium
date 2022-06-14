@@ -13,6 +13,7 @@ const App = () => {
   return articles.map(article => {
     return (
       <article key={article.guid}>
+        <img src={article.image} width={500} alt={article.title}/>
         <p className={'title'}>{article.title}</p>
         <p className={'description'}>{article.description}</p>
         <a href={article.link} target={'_blank'} rel={'noreferrer'}>

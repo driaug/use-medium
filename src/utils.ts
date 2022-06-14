@@ -5,6 +5,10 @@ export function parseFeed(feed: Document) {
       description: i
         .querySelector('description')
         ?.childNodes[0].textContent?.replace(/<[^>]*>?/gm, '') as string,
+      image: i
+        .querySelector('description')
+        ?.childNodes[0].textContent?.split('src="')[1]
+        .split(/[ ">]/)[0] as string,
       author: i.querySelector('dc\\:creator')?.innerHTML as string,
       link: i.querySelector('link')?.innerHTML as string,
       guid: i.querySelector('guid')?.innerHTML as string,
